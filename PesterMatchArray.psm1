@@ -1,2 +1,4 @@
-# TODO - pull this out to a separate repo and package on Chocolatey!
+Push-Location $PSScriptRoot
+    [System.Diagnostics.Debug]::WriteLine("PoshHump:in psm1")
 . .\PesterMatchArray.ps1
+Pop-Location
