@@ -53,7 +53,7 @@ Describe "MatchArrayUnordered examples" {
 
 ## Release Notes
 
-### Version 0.2.0 26th November 2015
+### Version 0.2.1 26th November 2015
 Pushed to PowerShell Gallery
 
 Initial version of PesterMatchArray that is split out from other projects
