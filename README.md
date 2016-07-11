@@ -1,7 +1,7 @@
 # PesterMatchArray
 This module provides additional assertions for [Pester](https://github.com/pester/Pester) to help with testing array contents
 
-Also see [PesterMatchHashtables](https://github.com/stuartleeks/PesterMatchHashtables) for hashtable assertions.
+Also see [PesterMatchHashtable](https://github.com/stuartleeks/PesterMatchHashtable) for hashtable assertions.
 
 
 ## Installation
