@@ -3,7 +3,7 @@ This module provides additional assertions for [Pester](https://github.com/peste
 
 Also see [PesterMatchHashtable](https://github.com/stuartleeks/PesterMatchHashtable) for hashtable assertions.
 
-![Build status](https://ci.appveyor.com/api/projects/status/6huvvr4ujptbkk52/branch/master?svg=true)
+[![Build status](https://ci.appveyor.com/api/projects/status/6huvvr4ujptbkk52/branch/master?svg=true)](https://ci.appveyor.com/project/stuartleeks/pestermatcharray/branch/master)
 
 ## Installation
 
