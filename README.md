@@ -57,6 +57,11 @@ Describe "MatchArrayUnordered examples" {
 
 ## Release Notes
 
+### Version 0.3.1 31st July 2017
+Pushed to PowerShell Gallery
+
+Fix #4 (BUG: arrays with the same items in different quantities do not fail unordered assertion)
+
 ### Version 0.3.0 27th July 2017
 Pushed to PowerShell Gallery
 
