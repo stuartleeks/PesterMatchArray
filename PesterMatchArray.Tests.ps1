@@ -25,6 +25,9 @@ Describe "MatchArrayUnordered" {
     It "returns false if arrays differ in length" {
         , (@(1)) | Should Not MatchArrayUnordered @(1, 1)
     }
+    It "returns false if arrays differ in the number of each item" {
+        , (@(1, 1, 2)) | Should Not MatchArrayUnordered @(1, 2, 2)
+    }
 }
 
 
@@ -50,5 +53,8 @@ Describe "MatchArrayOrdered" {
     }
     It "returns false if arrays differ in length" {
         , @(1)  | Should Not MatchArrayOrdered  @(1, 1)
+    }
+    It "returns false if arrays differ in the number of each item" {
+        , (@(1, 1, 2)) | Should Not MatchArrayOrdered @(1, 2, 2)
     }
 }
