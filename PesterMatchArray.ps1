@@ -25,14 +25,22 @@ function PesterMatchArrayUnordered($ActualValue, $ExpectedValue, [switch] $Negat
 } 
 function FindMismatchedValueUnordered($ActualValue, $ExpectedValue) {
     $ActualValue = @($ActualValue)
-    for ($i = 0; $i -lt $ExpectedValue.Length; $i++) {
-        if (-not($ActualValue -contains $ExpectedValue[$i])) {
-            return "Expected: {$ExpectedValue}. Actual: {$ActualValue}. Actual is missing item: $($ExpectedValue[$i])"
+    $ExpectedGroups = $ExpectedValue | Group-Object | Sort-Object -Property Name
+    $ActualGroups = $ActualValue | Group-Object | Sort-Object -Property Name
+    for ($i = 0; $i -lt $ExpectedGroups.Length; $i++) {
+        if ( ($i -ge $ActualGroups.Length) `
+                -or (-not($ActualGroups[$i].Name -eq $ExpectedGroups[$i].Name))) {
+            return "Expected: {$ExpectedValue}. Actual: {$ActualValue}. Actual is missing item: $($ExpectedGroups[$i].Name)"
+        }
+        if (-not($ActualGroups[$i].Count -eq $ExpectedGroups[$i].Count)) {
+            return "Expected: {$ExpectedValue}. Actual: {$ActualValue}. Actual has $($ActualGroups[$i].Count) of item '$($ExpectedGroups[$i].Name)', expected $($ExpectedGroups[$i].Count)"
         }
     }
-    for ($i = 0; $i -lt $value.Length; $i++) {
-        if (-not($ExpectedValue -contains $ActualValue[$i])) {
-            return "Expected: {$ExpectedValue}. Actual: {$ActualValue}. Actual contains extra item: $($ActualValue[$i])"
+    for ($i = 0; $i -lt $ActualGroups.Length; $i++) {
+        # check for items in actual not in expected
+        if ( ($i -ge $ExpectedGroups.Length) `
+                -or (-not($ExpectedGroups[$i].Name -eq $ActualGroups[$i].Name))) {
+            return "Expected: {$ExpectedValue}. Actual: {$ActualValue}. Expected doesn't have item: $($ActualGroups[$i].Name)"
         }
     }
     if ($ActualValue.Length -ne $ExpectedValue.Length) {
