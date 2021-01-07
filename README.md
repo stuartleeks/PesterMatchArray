@@ -1,3 +1,5 @@
+***This repo is now archived as the functionality exists directly in Pester: https://pester.dev/docs/usage/assertions#be***
+
 # PesterMatchArray
 This module provides additional assertions for [Pester](https://github.com/pester/Pester) to help with testing array contents
 
